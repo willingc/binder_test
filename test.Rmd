@@ -1,0 +1,34 @@
+---
+title: "Test"
+knit: markdowntemplates::to_jupyter
+---
+## Notedown Test
+
+**run with:**
+`notedown test.Rmd > test.ipynb`
+
+Let's try a python block
+
+```{r engine="python"}
+def test(x):
+  return x * x
+test(2)
+```
+
+And a ggplot test
+
+```{r}
+suppressPackageStartupMessages(library(ggplot2))
+```
+
+We'll use an old friend
+
+```{r}
+head(mtcars)
+```
+
+and plot it:
+
+```{r}
+ggplot(mtcars, aes(wt, mpg)) + geom_point() + ggthemes::theme_fivethirtyeight()
+```
