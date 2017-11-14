@@ -4,31 +4,45 @@ knit: markdowntemplates::to_jupyter
 ---
 ## Notedown Test
 
-**run with:**
-`notedown test.Rmd > test.ipynb`
+**run from Anaconda Prompt**
+`notedown --nomagic test.Rmd > test.ipynb`
 
-Let's try a python block
+```{r install-stuff}
+install.packages("ggthemes")
+install.packages("devtools")
+```
 
-```{r engine="python"}
-def test(x):
-  return x * x
-test(2)
+```{r print-wd}
+pwd <- getwd()
+print(pwd)
+```
+
+```{r create-stuff}
+dir.create(paste0(pwd, "/test_directory"))
+file.create("foo.csv")
 ```
 
 And a ggplot test
 
-```{r}
+```{r load-ggplot2}
 suppressPackageStartupMessages(library(ggplot2))
 ```
 
 We'll use an old friend
 
-```{r}
+```{r show-mtcars}
 head(mtcars)
 ```
 
 and plot it:
 
-```{r}
+```{r make-plot}
 ggplot(mtcars, aes(wt, mpg)) + geom_point() + ggthemes::theme_fivethirtyeight()
 ```
+
+```{r sound}
+install.packages("beepr")
+require(beepr)
+beep(4)
+```
+
